@@ -1,0 +1,615 @@
+@import "compass/css3";
+
+@import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
+
+// animation mixin from http://hugogiraudel.com/2013/03/25/compass-extensions/
+@mixin animation($content) {
+  //@include experimental(animation, $content, -webkit, -moz, not -o, not -ms, official);
+  animation: $content;
+}
+
+//http://css-tricks.com/using-flexbox/
+
+@mixin display-box() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  //display: -webkit-flex;
+  //display: flex;
+}
+
+@mixin flex() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex-direction($dir) {
+  -moz-flex-direction: $dir;
+  -ms-flex-direction: $dir;
+  -webkit-flex-direction: $dir;
+  flex-direction: $dir;
+}
+
+@mixin align-items($dir) {
+  -moz-align-items: $dir;
+  -ms-align-items: $dir;
+  -webkit-align-items: $dir;
+  align-items: $dir;
+}
+
+@mixin justify-content($dir) {
+  -moz-justify-content: $dir;
+  -ms-justify-content: $dir;
+  -webkit-justify-content: $dir;
+  justify-content: $dir;
+}
+
+@mixin box-orient($dir) {
+  -moz-box-orient: $dir;
+  -ms-box-orient: $dir;
+  -webkit-box-orient: $dir;
+  box-orient: $dir;
+}
+
+@mixin box-align($dir){
+  -moz-box-align: $dir;
+  -ms-box-align: $dir;
+  -webkit-box-align: $dir;
+  box-align: $dir;
+}
+
+@mixin box-pack($dir){
+  -moz-box-pack: $dir;
+  -ms-box-pack: $dir;
+  -webkit-box-pack: $dir;
+  box-pack: $dir;
+}
+
+
+// keyframes mixin from https://gist.github.com/ericam/1607696
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+@-moz-keyframes #{$name} {
+  @content;
+}
+@-ms-keyframes #{$name} {
+  @content;
+}
+@keyframes #{$name} {
+  @content;
+}
+}
+
+// mixin from http://darbybrown.com/2013/08/04/mixins-and-placeholders.html
+@mixin animation-play-state($state...) {
+  -o-animation-play-state: $state;
+  -moz-animation-play-state: $state;
+  -webkit-animation-play-state: $state;
+  animation-play-state: $state;
+}
+
+html {
+  width:100%;
+  height:100%;
+}
+body {
+  width:100%;
+  height:100%;
+  @include flex();
+  @include align-items(center);
+  @include justify-content(center);
+  transform: translate3d(0, 0, 0);
+}
+.clearfix {
+  zoom:1;
+  &:before, &:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+$width:0.5em;
+
+$bg: #e9ddb1;
+$green: #8f9b39;
+$shadow: #bcb085;
+$face: #eed3c2;
+$shirt: #c0c850;
+$darkGreen:#5b5e21;
+$pants:#2b92cc;
+$blue:#2b92cc;
+$red:#e1602c;
+$brown:#ab6635;
+$ltblue:#a0bece;
+$dkblue: #4d6068;
+$vltblue:#dfeef4;
+$mblue:#81aab9;
+$mdkblue:#548c9f;
+$batman:#3c3c3c;
+$yellow:#f4ca49;
+$gray:#919191;
+
+body {
+  background:$bg;
+}
+
+.gang {
+  @extend .clearfix;
+  .no-flexbox {
+    margin:10em auto;
+    max-width:70em;
+  }
+}
+.container {
+  width:$width * 26;
+  height:$width * 26;
+  float:left;
+}
+@keyframes woosh {
+  from {
+    width:$width/10;
+    height:$width/10;
+  }
+}
+
+.character {
+  width: $width;
+  height: $width;
+  animation: woosh .75s forwards;
+}
+
+
+/////////////////////////////////////BATMAN
+.batman {
+  box-shadow:
+    (11 * $width) (5 * $width) 0 $batman,
+    (15 * $width) (5 * $width) 0 $batman,
+    (11 * $width) (6 * $width) 0 $batman,
+    (12 * $width) (6 * $width) 0 $batman,
+    (13 * $width) (6 * $width) 0 $batman,
+    (14 * $width) (6 * $width) 0 $batman,
+    (15 * $width) (6 * $width) 0 $batman,
+    (11 * $width) (7 * $width) 0 $batman,
+    (12 * $width) (7 * $width) 0 $batman,
+    (13 * $width) (7 * $width) 0 $batman,
+    (14 * $width) (7 * $width) 0 $batman,
+    (15 * $width) (7 * $width) 0 $batman,
+    (17 * $width) (7 * $width) 0 $shadow,
+    (11 * $width) (8 * $width) 0 $batman,
+    (12 * $width) (8 * $width) 0 $batman,
+    (13 * $width) (8 * $width) 0 $batman,
+    (14 * $width) (8 * $width) 0 $batman,
+    (15 * $width) (8 * $width) 0 $batman,
+    (17 * $width) (8 * $width) 0 $shadow,
+    (11 * $width) (9 * $width) 0 $batman,
+    (12 * $width) (9 * $width) 0 $face,
+    (13 * $width) (9 * $width) 0 $face,
+    (14 * $width) (9 * $width) 0 $face,
+    (15 * $width) (9 * $width) 0 $face,
+    (16 * $width) (9 * $width) 0 $shadow,
+    (17 * $width) (9 * $width) 0 $shadow,
+    (11 * $width) (10 * $width) 0 $batman,
+    (12 * $width) (10 * $width) 0 $face,
+    (13 * $width) (10 * $width) 0 $face,
+    (14 * $width) (10 * $width) 0 $face,
+    (15 * $width) (10 * $width) 0 $face,
+    (16 * $width) (10 * $width) 0 $shadow,
+    (17 * $width) (10 * $width) 0 $shadow,
+    (9 * $width) (11 * $width) 0 $batman,
+    (10 * $width) (11 * $width) 0 $batman,
+    (11 * $width) (11 * $width) 0 $gray,
+    (12 * $width) (11 * $width) 0 $gray,
+    (13 * $width) (11 * $width) 0 $gray,
+    (14 * $width) (11 * $width) 0 $gray,
+    (15 * $width) (11 * $width) 0 $gray,
+    (16 * $width) (11 * $width) 0 $shadow,
+    (17 * $width) (11 * $width) 0 $shadow,
+    (9 * $width) (12 * $width) 0 $batman,
+    (10 * $width) (12 * $width) 0 $gray,
+    (11 * $width) (12 * $width) 0 $gray,
+    (12 * $width) (12 * $width) 0 $yellow,
+    (13 * $width) (12 * $width) 0 $yellow,
+    (14 * $width) (12 * $width) 0 $yellow,
+    (15 * $width) (12 * $width) 0 $yellow,
+    (16 * $width) (12 * $width) 0 $batman,
+    (17 * $width) (12 * $width) 0 $shadow,
+    (7 * $width) (13 * $width) 0 $batman,
+    (8 * $width) (13 * $width) 0 $batman,
+    (9 * $width) (13 * $width) 0 $gray,
+    (10 * $width) (13 * $width) 0 $gray,
+    (11 * $width) (13 * $width) 0 $yellow,
+    (12 * $width) (13 * $width) 0 $yellow,
+    (13 * $width) (13 * $width) 0 $yellow,
+    (14 * $width) (13 * $width) 0 $yellow,
+    (15 * $width) (13 * $width) 0 $yellow,
+    (16 * $width) (13 * $width) 0 $batman,
+    (17 * $width) (13 * $width) 0 $batman,
+    (6 * $width) (14 * $width) 0 $batman,
+    (7 * $width) (14 * $width) 0 $batman,
+    (8 * $width) (14 * $width) 0 $batman,
+    (9 * $width) (14 * $width) 0 $gray,
+    (10 * $width) (14 * $width) 0 $gray,
+    (11 * $width) (14 * $width) 0 $gray,
+    (12 * $width) (14 * $width) 0 $yellow,
+    (13 * $width) (14 * $width) 0 $yellow,
+    (14 * $width) (14 * $width) 0 $yellow,
+    (15 * $width) (14 * $width) 0 $yellow,
+    (16 * $width) (14 * $width) 0 $batman,
+    (17 * $width) (14 * $width) 0 $batman,
+    (18 * $width) (14 * $width) 0 $batman,
+    (6 * $width) (15 * $width) 0 $batman,
+    (7 * $width) (15 * $width) 0 $batman,
+    (8 * $width) (15 * $width) 0 $batman,
+    (9 * $width) (15 * $width) 0 $gray,
+    (10 * $width) (15 * $width) 0 $gray,
+    (11 * $width) (15 * $width) 0 $gray,
+    (12 * $width) (15 * $width) 0 $gray,
+    (13 * $width) (15 * $width) 0 $gray,
+    (14 * $width) (15 * $width) 0 $gray,
+    (15 * $width) (15 * $width) 0 $gray,
+    (16 * $width) (15 * $width) 0 $batman,
+    (17 * $width) (15 * $width) 0 $batman,
+    (18 * $width) (15 * $width) 0 $batman,
+    (19 * $width) (15 * $width) 0 $shadow,
+    (6 * $width) (16 * $width) 0 $batman,
+    (7 * $width) (16 * $width) 0 $batman,
+    (8 * $width) (16 * $width) 0 $batman,
+    (9 * $width) (16 * $width) 0 $gray,
+    (10 * $width) (16 * $width) 0 $gray,
+    (11 * $width) (16 * $width) 0 $gray,
+    (12 * $width) (16 * $width) 0 $gray,
+    (13 * $width) (16 * $width) 0 $gray,
+    (14 * $width) (16 * $width) 0 $gray,
+    (15 * $width) (16 * $width) 0 $gray,
+    (16 * $width) (16 * $width) 0 $batman,
+    (17 * $width) (16 * $width) 0 $batman,
+    (18 * $width) (16 * $width) 0 $batman,
+    (19 * $width) (16 * $width) 0 $shadow,
+    (20 * $width) (16 * $width) 0 $shadow,
+    (6 * $width) (17 * $width) 0 $batman,
+    (7 * $width) (17 * $width) 0 $batman,
+    (8 * $width) (17 * $width) 0 $batman,
+    (9 * $width) (17 * $width) 0 $gray,
+    (10 * $width) (17 * $width) 0 $gray,
+    (11 * $width) (17 * $width) 0 $gray,
+    (12 * $width) (17 * $width) 0 $gray,
+    (13 * $width) (17 * $width) 0 $gray,
+    (14 * $width) (17 * $width) 0 $gray,
+    (15 * $width) (17 * $width) 0 $gray,
+    (16 * $width) (17 * $width) 0 $batman,
+    (17 * $width) (17 * $width) 0 $batman,
+    (18 * $width) (17 * $width) 0 $batman,
+    (19 * $width) (17 * $width) 0 $shadow,
+    (20 * $width) (17 * $width) 0 $shadow,
+    (6 * $width) (18 * $width) 0 $batman,
+    (7 * $width) (18 * $width) 0 $batman,
+    (8 * $width) (18 * $width) 0 $batman,
+    (9 * $width) (18 * $width) 0 $yellow,
+    (10 * $width) (18 * $width) 0 $yellow,
+    (11 * $width) (18 * $width) 0 $yellow,
+    (12 * $width) (18 * $width) 0 $yellow,
+    (13 * $width) (18 * $width) 0 $yellow,
+    (14 * $width) (18 * $width) 0 $yellow,
+    (15 * $width) (18 * $width) 0 $yellow,
+    (16 * $width) (18 * $width) 0 $batman,
+    (17 * $width) (18 * $width) 0 $batman,
+    (18 * $width) (18 * $width) 0 $batman,
+    (19 * $width) (18 * $width) 0 $shadow,
+    (20 * $width) (18 * $width) 0 $shadow,
+    (5 * $width) (19 * $width) 0 $batman,
+    (6 * $width) (19 * $width) 0 $batman,
+    (7 * $width) (19 * $width) 0 $batman,
+    (8 * $width) (19 * $width) 0 $batman,
+    (9 * $width) (19 * $width) 0 $batman,
+    (10 * $width) (19 * $width) 0 $batman,
+    (11 * $width) (19 * $width) 0 $batman,
+    (12 * $width) (19 * $width) 0 $batman,
+    (13 * $width) (19 * $width) 0 $batman,
+    (14 * $width) (19 * $width) 0 $batman,
+    (15 * $width) (19 * $width) 0 $batman,
+    (16 * $width) (19 * $width) 0 $batman,
+    (17 * $width) (19 * $width) 0 $batman,
+    (18 * $width) (19 * $width) 0 $batman,
+    (19 * $width) (19 * $width) 0 $batman,
+    (20 * $width) (19 * $width) 0 $shadow,
+    (5 * $width) (20 * $width) 0 $batman,
+    (6 * $width) (20 * $width) 0 $batman,
+    (7 * $width) (20 * $width) 0 $batman,
+    (8 * $width) (20 * $width) 0 $batman,
+    (9 * $width) (20 * $width) 0 $batman,
+    (10 * $width) (20 * $width) 0 $batman,
+    (11 * $width) (20 * $width) 0 $batman,
+    (12 * $width) (20 * $width) 0 $batman,
+    (13 * $width) (20 * $width) 0 $batman,
+    (14 * $width) (20 * $width) 0 $batman,
+    (15 * $width) (20 * $width) 0 $batman,
+    (16 * $width) (20 * $width) 0 $batman,
+    (17 * $width) (20 * $width) 0 $batman,
+    (18 * $width) (20 * $width) 0 $batman,
+    (19 * $width) (20 * $width) 0 $batman,
+    (20 * $width) (20 * $width) 0 $shadow,
+    (5 * $width) (21 * $width) 0 $batman,
+    (6 * $width) (21 * $width) 0 $batman,
+    (7 * $width) (21 * $width) 0 $batman,
+    (8 * $width) (21 * $width) 0 $batman,
+    (9 * $width) (21 * $width) 0 $gray,
+    (10 * $width) (21 * $width) 0 $shadow,
+    (11 * $width) (21 * $width) 0 $shadow,
+    (12 * $width) (21 * $width) 0 $shadow,
+    (13 * $width) (21 * $width) 0 $gray,
+    (14 * $width) (21 * $width) 0 $shadow,
+    (15 * $width) (21 * $width) 0 $shadow,
+    (16 * $width) (21 * $width) 0 $batman,
+    (17 * $width) (21 * $width) 0 $batman,
+    (18 * $width) (21 * $width) 0 $batman,
+    (19 * $width) (21 * $width) 0 $batman,
+    (20 * $width) (21 * $width) 0 $shadow,
+    (5 * $width) (22 * $width) 0 $batman,
+    (7 * $width) (22 * $width) 0 $shadow,
+    (8 * $width) (22 * $width) 0 $batman,
+    (9 * $width) (22 * $width) 0 $gray,
+    (10 * $width) (22 * $width) 0 $shadow,
+    (11 * $width) (22 * $width) 0 $shadow,
+    (12 * $width) (22 * $width) 0 $shadow,
+    (13 * $width) (22 * $width) 0 $gray,
+    (14 * $width) (22 * $width) 0 $shadow,
+    (15 * $width) (22 * $width) 0 $shadow,
+    (16 * $width) (22 * $width) 0 $batman,
+    (17 * $width) (22 * $width) 0 $shadow,
+    (18 * $width) (22 * $width) 0 $shadow,
+    (19 * $width) (22 * $width) 0 $batman,
+    (20 * $width) (22 * $width) 0 $shadow,
+    (7 * $width) (23 * $width) 0 $shadow,
+    (8 * $width) (23 * $width) 0 $shadow,
+    (9 * $width) (23 * $width) 0 $batman,
+    (10 * $width) (23 * $width) 0 $shadow,
+    (11 * $width) (23 * $width) 0 $shadow,
+    (13 * $width) (23 * $width) 0 $batman,
+    (15 * $width) (23 * $width) 0 $shadow,
+    (17 * $width) (23 * $width) 0 $shadow,
+    (18 * $width) (23 * $width) 0 $shadow,
+    (19 * $width) (23 * $width) 0 $shadow,
+    (20 * $width) (23 * $width) 0 $shadow,
+    (7 * $width) (24 * $width) 0 $shadow,
+    (9 * $width) (24 * $width) 0 $batman,
+    (10 * $width) (24 * $width) 0 $batman,
+    (11 * $width) (24 * $width) 0 $shadow,
+    (13 * $width) (24 * $width) 0 $batman,
+    (14 * $width) (24 * $width) 0 $batman,
+    (15 * $width) (24 * $width) 0 $shadow,
+    (17 * $width) (24 * $width) 0 $shadow,
+    (20 * $width) (24 * $width) 0 $shadow,
+    (9 * $width) (25 * $width) 0 $batman,
+    (10 * $width) (25 * $width) 0 $batman,
+    (11 * $width) (25 * $width) 0 $batman,
+    (13 * $width) (25 * $width) 0 $batman,
+    (14 * $width) (25 * $width) 0 $batman,
+    (15 * $width) (25 * $width) 0 $batman}
+
+.container:hover .batman {
+  box-shadow:
+    (11 * $width) (6 * $width) 0 $batman,
+    (15 * $width) (6 * $width) 0 $batman,
+    (11 * $width) (7 * $width) 0 $batman,
+    (12 * $width) (7 * $width) 0 $batman,
+    (13 * $width) (7 * $width) 0 $batman,
+    (14 * $width) (7 * $width) 0 $batman,
+    (15 * $width) (7 * $width) 0 $batman,
+    (11 * $width) (8 * $width) 0 $batman,
+    (12 * $width) (8 * $width) 0 $batman,
+    (13 * $width) (8 * $width) 0 $batman,
+    (14 * $width) (8 * $width) 0 $batman,
+    (15 * $width) (8 * $width) 0 $batman,
+    (17 * $width) (8 * $width) 0 $shadow,
+    (11 * $width) (9 * $width) 0 $batman,
+    (12 * $width) (9 * $width) 0 $batman,
+    (13 * $width) (9 * $width) 0 $batman,
+    (14 * $width) (9 * $width) 0 $batman,
+    (15 * $width) (9 * $width) 0 $batman,
+    (17 * $width) (9 * $width) 0 $shadow,
+    (11 * $width) (10 * $width) 0 $batman,
+    (12 * $width) (10 * $width) 0 $face,
+    (13 * $width) (10 * $width) 0 $face,
+    (14 * $width) (10 * $width) 0 $face,
+    (15 * $width) (10 * $width) 0 $face,
+    (16 * $width) (10 * $width) 0 $shadow,
+    (17 * $width) (10 * $width) 0 $shadow,
+    (11 * $width) (11 * $width) 0 $batman,
+    (12 * $width) (11 * $width) 0 $face,
+    (13 * $width) (11 * $width) 0 $face,
+    (14 * $width) (11 * $width) 0 $face,
+    (15 * $width) (11 * $width) 0 $face,
+    (16 * $width) (11 * $width) 0 $shadow,
+    (17 * $width) (11 * $width) 0 $shadow,
+    (9 * $width) (12 * $width) 0 $batman,
+    (10 * $width) (12 * $width) 0 $batman,
+    (11 * $width) (12 * $width) 0 $gray,
+    (12 * $width) (12 * $width) 0 $gray,
+    (13 * $width) (12 * $width) 0 $gray,
+    (14 * $width) (12 * $width) 0 $gray,
+    (15 * $width) (12 * $width) 0 $gray,
+    (16 * $width) (12 * $width) 0 $shadow,
+    (17 * $width) (12 * $width) 0 $shadow,
+    (9 * $width) (13 * $width) 0 $batman,
+    (10 * $width) (13 * $width) 0 $gray,
+    (11 * $width) (13 * $width) 0 $gray,
+    (12 * $width) (13 * $width) 0 $yellow,
+    (13 * $width) (13 * $width) 0 $yellow,
+    (14 * $width) (13 * $width) 0 $yellow,
+    (15 * $width) (13 * $width) 0 $yellow,
+    (16 * $width) (13 * $width) 0 $batman,
+    (17 * $width) (13 * $width) 0 $shadow,
+    (7 * $width) (14 * $width) 0 $batman,
+    (8 * $width) (14 * $width) 0 $batman,
+    (9 * $width) (14 * $width) 0 $gray,
+    (10 * $width) (14 * $width) 0 $gray,
+    (11 * $width) (14 * $width) 0 $yellow,
+    (12 * $width) (14 * $width) 0 $yellow,
+    (13 * $width) (14 * $width) 0 $yellow,
+    (14 * $width) (14 * $width) 0 $yellow,
+    (15 * $width) (14 * $width) 0 $yellow,
+    (16 * $width) (14 * $width) 0 $batman,
+    (17 * $width) (14 * $width) 0 $batman,
+    (6 * $width) (15 * $width) 0 $batman,
+    (7 * $width) (15 * $width) 0 $batman,
+    (8 * $width) (15 * $width) 0 $batman,
+    (9 * $width) (15 * $width) 0 $gray,
+    (10 * $width) (15 * $width) 0 $gray,
+    (11 * $width) (15 * $width) 0 $gray,
+    (12 * $width) (15 * $width) 0 $yellow,
+    (13 * $width) (15 * $width) 0 $yellow,
+    (14 * $width) (15 * $width) 0 $yellow,
+    (15 * $width) (15 * $width) 0 $yellow,
+    (16 * $width) (15 * $width) 0 $batman,
+    (17 * $width) (15 * $width) 0 $batman,
+    (18 * $width) (15 * $width) 0 $batman,
+    (6 * $width) (16 * $width) 0 $batman,
+    (7 * $width) (16 * $width) 0 $batman,
+    (8 * $width) (16 * $width) 0 $batman,
+    (9 * $width) (16 * $width) 0 $gray,
+    (10 * $width) (16 * $width) 0 $gray,
+    (11 * $width) (16 * $width) 0 $gray,
+    (12 * $width) (16 * $width) 0 $gray,
+    (13 * $width) (16 * $width) 0 $gray,
+    (14 * $width) (16 * $width) 0 $gray,
+    (15 * $width) (16 * $width) 0 $gray,
+    (16 * $width) (16 * $width) 0 $batman,
+    (17 * $width) (16 * $width) 0 $batman,
+    (18 * $width) (16 * $width) 0 $batman,
+    (19 * $width) (16 * $width) 0 $shadow,
+    (6 * $width) (17 * $width) 0 $batman,
+    (7 * $width) (17 * $width) 0 $batman,
+    (8 * $width) (17 * $width) 0 $batman,
+    (9 * $width) (17 * $width) 0 $gray,
+    (10 * $width) (17 * $width) 0 $gray,
+    (11 * $width) (17 * $width) 0 $gray,
+    (12 * $width) (17 * $width) 0 $gray,
+    (13 * $width) (17 * $width) 0 $gray,
+    (14 * $width) (17 * $width) 0 $gray,
+    (15 * $width) (17 * $width) 0 $gray,
+    (16 * $width) (17 * $width) 0 $batman,
+    (17 * $width) (17 * $width) 0 $batman,
+    (18 * $width) (17 * $width) 0 $batman,
+    (19 * $width) (17 * $width) 0 $shadow,
+    (20 * $width) (17 * $width) 0 $shadow,(6 * $width) (18 * $width) 0 $batman,
+    (7 * $width) (18 * $width) 0 $batman,
+    (8 * $width) (18 * $width) 0 $batman,
+    (9 * $width) (18 * $width) 0 $gray,
+    (10 * $width) (18 * $width) 0 $gray,
+    (11 * $width) (18 * $width) 0 $gray,
+    (12 * $width) (18 * $width) 0 $gray,
+    (13 * $width) (18 * $width) 0 $gray,
+    (14 * $width) (18 * $width) 0 $gray,
+    (15 * $width) (18 * $width) 0 $gray,
+    (16 * $width) (18 * $width) 0 $batman,
+    (17 * $width) (18 * $width) 0 $batman,
+    (18 * $width) (18 * $width) 0 $batman,
+    (19 * $width) (18 * $width) 0 $shadow,
+    (20 * $width) (18 * $width) 0 $shadow,(6 * $width) (19 * $width) 0 $batman,
+    (7 * $width) (19 * $width) 0 $batman,
+    (8 * $width) (19 * $width) 0 $batman,
+    (9 * $width) (19 * $width) 0 $yellow,
+    (10 * $width) (19 * $width) 0 $yellow,
+    (11 * $width) (19 * $width) 0 $yellow,
+    (12 * $width) (19 * $width) 0 $yellow,
+    (13 * $width) (19 * $width) 0 $yellow,
+    (14 * $width) (19 * $width) 0 $yellow,
+    (15 * $width) (19 * $width) 0 $yellow,
+    (16 * $width) (19 * $width) 0 $batman,
+    (17 * $width) (19 * $width) 0 $batman,
+    (18 * $width) (19 * $width) 0 $batman,
+    (19 * $width) (19 * $width) 0 $shadow,
+    (20 * $width) (19 * $width) 0 $shadow,
+    (5 * $width) (20 * $width) 0 $batman,
+    (6 * $width) (20 * $width) 0 $batman,
+    (7 * $width) (20 * $width) 0 $batman,
+    (8 * $width) (20 * $width) 0 $batman,
+    (9 * $width) (20 * $width) 0 $batman,
+    (10 * $width) (20 * $width) 0 $batman,
+    (11 * $width) (20 * $width) 0 $batman,
+    (12 * $width) (20 * $width) 0 $batman,
+    (13 * $width) (20 * $width) 0 $batman,
+    (14 * $width) (20 * $width) 0 $batman,
+    (15 * $width) (20 * $width) 0 $batman,
+    (16 * $width) (20 * $width) 0 $batman,
+    (17 * $width) (20 * $width) 0 $batman,
+    (18 * $width) (20 * $width) 0 $batman,
+    (19 * $width) (20 * $width) 0 $batman,
+    (20 * $width) (20 * $width) 0 $shadow,
+    (5 * $width) (21 * $width) 0 $batman,
+    (6 * $width) (21 * $width) 0 $batman,
+    (7 * $width) (21 * $width) 0 $batman,
+    (8 * $width) (21 * $width) 0 $batman,
+    (9 * $width) (21 * $width) 0 $batman,
+    (10 * $width) (21 * $width) 0 $batman,
+    (11 * $width) (21 * $width) 0 $batman,
+    (12 * $width) (21 * $width) 0 $batman,
+    (13 * $width) (21 * $width) 0 $batman,
+    (14 * $width) (21 * $width) 0 $batman,
+    (15 * $width) (21 * $width) 0 $batman,
+    (16 * $width) (21 * $width) 0 $batman,
+    (17 * $width) (21 * $width) 0 $batman,
+    (18 * $width) (21 * $width) 0 $batman,
+    (19 * $width) (21 * $width) 0 $batman,
+    (20 * $width) (21 * $width) 0 $shadow,
+    (5 * $width) (22 * $width) 0 $batman,
+    (6 * $width) (22 * $width) 0 $batman,
+    (7 * $width) (22 * $width) 0 $batman,
+    (8 * $width) (22 * $width) 0 $batman,
+    (9 * $width) (22 * $width) 0 $gray,
+    (10 * $width) (22 * $width) 0 $shadow,
+    (11 * $width) (22 * $width) 0 $shadow,
+    (12 * $width) (22 * $width) 0 $shadow,
+    (13 * $width) (22 * $width) 0 $gray,
+    (14 * $width) (22 * $width) 0 $shadow,
+    (15 * $width) (22 * $width) 0 $shadow,
+    (16 * $width) (22 * $width) 0 $batman,
+    (17 * $width) (22 * $width) 0 $batman,
+    (18 * $width) (22 * $width) 0 $batman,
+    (19 * $width) (22 * $width) 0 $batman,
+    (20 * $width) (22 * $width) 0 $shadow,
+    (5 * $width) (23 * $width) 0 $batman,
+    (7 * $width) (23 * $width) 0 $shadow,
+    (8 * $width) (23 * $width) 0 $batman,
+    (9 * $width) (23 * $width) 0 $batman,
+    (10 * $width) (23 * $width) 0 $shadow,
+    (11 * $width) (23 * $width) 0 $shadow,
+    (13 * $width) (23 * $width) 0 $batman,
+    (15 * $width) (23 * $width) 0 $shadow,
+    (16 * $width) (23 * $width) 0 $batman,
+    (17 * $width) (23 * $width) 0 $shadow,
+    (18 * $width) (23 * $width) 0 $shadow,
+    (19 * $width) (23 * $width) 0 $batman,
+    (20 * $width) (23 * $width) 0 $shadow,
+    (7 * $width) (24 * $width) 0 $shadow,
+    (8 * $width) (24 * $width) 0 $shadow,
+    (9 * $width) (24 * $width) 0 $batman,
+    (10 * $width) (24 * $width) 0 $batman,
+    (11 * $width) (24 * $width) 0 $shadow,
+    (13 * $width) (24 * $width) 0 $batman,
+    (14 * $width) (24 * $width) 0 $batman,
+    (15 * $width) (24 * $width) 0 $shadow,
+    (17 * $width) (24 * $width) 0 $shadow,
+    (18 * $width) (24 * $width) 0 $shadow,
+    (19 * $width) (24 * $width) 0 $shadow,
+    (20 * $width) (24 * $width) 0 $shadow,
+    (7 * $width) (25 * $width) 0 $shadow,
+    (9 * $width) (25 * $width) 0 $batman,
+    (10 * $width) (25 * $width) 0 $batman,
+    (11 * $width) (25 * $width) 0 $batman,
+    (13 * $width) (25 * $width) 0 $batman,
+    (14 * $width) (25 * $width) 0 $batman,
+    (15 * $width) (25 * $width) 0 $batman,
+    (17 * $width) (25 * $width) 0 $shadow,
+    (20 * $width) (25 * $width) 0 $shadow;
+}

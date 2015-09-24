@@ -1,0 +1,47 @@
+!!! 5
+%html
+  %head
+    %title= "Your Website"
+    %meta{ :content => "", :name => "description" }
+    %meta{ :content => "", :name => "author" }
+    %meta{ :content => "3 days", :name => "revisit-after" }
+    %link{ :href => "/css/screen.css", :media => "screen", :rel => "stylesheet" }
+  %body
+    %header
+      %nav
+        %ul
+          %li= "Menu Item 1"
+
+    %section
+      %article
+        %header
+          %h2= "Article Title"
+          %p
+            Posted on
+            %time{ :datetime => "2009-09-04T16:31:24+02:00" }= "September 4th 2009"
+            by
+            %a{ :href => "#" }= "Author Name"
+            -
+            %a{ :href => "#" }= "6 comments"
+
+            %article
+              %p
+                It doesn&#39;t look so shiny to me. I just want to talk. It has nothing to do
+                with mating. Fry, that doesn&#39;t make sense. Why would I want to know that?
+              %p
+                They&#39;re like sex, except I&#39;m having them! You seem malnourished. Are
+                you suffering from intestinal parasites? Yeah. Give a little credit
+                to our public schools.
+
+
+      %aside
+        %h2= "The Sidebar"
+        %p
+          Michelle, I don&#39;t regret this, but I both rue and lament it. Our love isn&#39;t any
+          different from yours, except it&#39;s hotter, because I&#39;m involved. Bender, quit
+          destroying the universe! Robot 1-X, save my friends! And Zoidberg!
+
+
+      %footer
+        %p
+          Copyright 2011 My Name
