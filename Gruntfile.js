@@ -11,10 +11,22 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    clean: {
+      dist: 'dist'
+    },
+
+    copy: {
+      dist: {
+        files: [
+          {expand: true, src: ['app/assets/favicon.ico'], dest: 'dist/favicon.ico'}
+        ]
+      }
+    },
+
     haml: {
       dist: {
         files: {
-          'dist/index_test.html': 'app/index.haml'
+          'dist/index.html': 'app/index.haml'
         }
       }
     },
@@ -84,7 +96,7 @@ module.exports = function(grunt) {
           base: {
             path: 'dist',
             options: {
-              index: 'index_test.html'
+              index: 'index.html'
             }
           }
         }
@@ -94,6 +106,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('serve', function (target) {
     grunt.task.run([
+      'clean:dist',
+      'copy:dist',
       'haml:dist',
       'compass',
       'postcss:dist',
