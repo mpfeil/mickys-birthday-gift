@@ -1,4 +1,4 @@
-'use strict';
+  'use strict';
 
 module.exports = function(grunt) {
 
@@ -18,7 +18,24 @@ module.exports = function(grunt) {
     copy: {
       dist: {
         files: [
-          {expand: true, src: ['app/assets/favicon.ico'], dest: 'dist/favicon.ico'}
+          {
+            expand: true,
+            dot: true,
+            cwd: 'app/assets',
+            dest: 'dist',
+            src: [
+              'favicon.ico'
+            ]
+          },
+          {
+            expand: true,
+            dot: true,
+            cwd: 'node_modules/animate.css',
+            dest: 'dist/assets/css',
+            src: [
+              'animate.min.css'
+            ]
+          }
         ]
       }
     },
