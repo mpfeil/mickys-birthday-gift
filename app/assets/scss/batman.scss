@@ -118,6 +118,39 @@ body {
   }
 }
 
+button {
+  appearance: none;
+  font: inherit;
+  color: inherit;
+}
+
+.button {
+  padding: .75rem;
+  margin: .375rem;
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+  .button:focus {
+    outline: none;
+  }
+
+.button {
+  border: 2px solid #f35626;
+  line-height: 1.375;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  font-weight: 700;
+  color: #f35626;
+  cursor: pointer;
+  animation: hue 10s infinite linear;
+}
+
+.button--primary {
+    background-color: #f35626;
+    color: #fff;
+}
+
 $width:0.5em;
 
 $bg: #e9ddb1;
@@ -159,6 +192,16 @@ body {
   from {
     width:$width/10;
     height:$width/10;
+  }
+}
+
+@keyframes hue {
+  from {
+    filter: hue-rotate(0deg);
+  }
+
+  to {
+    filter: hue-rotate(-360deg);
   }
 }
 
