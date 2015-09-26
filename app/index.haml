@@ -9,12 +9,12 @@
     %link{ :href => "assets/css/animate.min.css", :media => "screen", :rel => "stylesheet" }
     %link{ :href => "assets/css/batman.css", :media => "screen", :rel => "stylesheet" }
   %body
-    .greetings{:class=>"bounce"}
+    %div.animated.flash
       %h1 y0 Bitch happy birtday
       %br
       %h2 y0y0y0y0
     - @characters = ['batman']
-    .gang
+    .gang.animated.swing.infinite
       - @characters.each do |character|
         .container
           .character{:class=>"#{character}"}
