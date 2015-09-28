@@ -9,6 +9,12 @@
     %link{ :href => "assets/css/animate.min.css", :rel => "stylesheet" }
     %link{ :href => "assets/css/batman.css", :media => "screen", :rel => "stylesheet" }
   %body
+    - @characters = ['batmanLogo']
+    .gang.animated.rotateIn.infinite
+      - @characters.each do |character|
+        .container
+          .character{:class=>"#{character}"}
+    %div.filler
     %div.animated.flash
       %h1 HAPPY BIRTHDAY
       %br
@@ -18,8 +24,4 @@
       - @characters.each do |character|
         .container
           .character{:class=>"#{character}"}
-    - @characters = ['batmanLogo']
-    .gang.animated.fadeInDownBig
-      - @characters.each do |character|
-        .container
-          .character{:class=>"#{character}"}
+    

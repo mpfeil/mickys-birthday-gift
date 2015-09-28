@@ -2,6 +2,8 @@
 
 @import url(http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css);
 
+@import url(http://fonts.googleapis.com/css?family=Rum+Raisin:regular);
+
 // animation mixin from http://hugogiraudel.com/2013/03/25/compass-extensions/
 @mixin animation($content) {
   //@include experimental(animation, $content, -webkit, -moz, not -o, not -ms, official);
@@ -124,6 +126,7 @@ body {
   @include align-items(center);
   @include justify-content(center);
   transform: translate3d(0, 0, 0);
+  font-family: 'Rum Raisin', sans-serif;
 }
 .clearfix {
   zoom:1;
@@ -136,6 +139,10 @@ body {
   &:after {
     clear: both;
   }
+}
+
+.filler {
+  margin-right: 2.75rem;
 }
 
 button {
