@@ -176,6 +176,9 @@ h1 {
   color: $batman;
   cursor: pointer;
   text-decoration: none;
+  @include flex();
+  @include align-items(center);
+  @include justify-content(center);
 }
 
 body {
