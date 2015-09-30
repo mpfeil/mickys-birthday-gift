@@ -11,6 +11,14 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    'gh-pages': {
+      options: {
+        base: 'dist',
+        message: 'get out the way old version :bomb:'
+      },
+      src: ['**/*']
+    },
+
     clean: {
       dist: 'dist'
     },
@@ -148,7 +156,8 @@ module.exports = function(grunt) {
       'copy:dist',
       'haml:dist',
       'compass',
-      'postcss:dist'
+      'postcss:dist',
+      'gh-pages'
     ]);
   });
 };
