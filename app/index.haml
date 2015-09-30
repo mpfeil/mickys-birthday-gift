@@ -10,7 +10,7 @@
     %link{ :href => "assets/css/batman.css", :media => "screen", :rel => "stylesheet" }
   %body
     - @characters = ['batmanLogo']
-    .gang.animated.rotateIn.infinite
+    .gang.animated.rotateIn.infinite.animationDuration
       - @characters.each do |character|
         .container
           .character{:class=>"#{character}"}
@@ -20,7 +20,7 @@
       %br
       %a.button{:href=>'http://www.kettelerhof.de/', :target=>'_blank'} Get Gift
     - @characters = ['batman']
-    .gang.animated.swing.infinite
+    .gang.animated.swing.infinite.animationDuration
       - @characters.each do |character|
         .container
           .character{:class=>"#{character}"}
