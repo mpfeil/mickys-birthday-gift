@@ -35,6 +35,15 @@ module.exports = function(grunt) {
             src: [
               'animate.min.css'
             ]
+          },
+          {
+            expand: true,
+            dot: true,
+            cwd: 'app/assets',
+            dest: 'dist/assets',
+            src: [
+              'batman.mp4'
+            ]
           }
         ]
       }
